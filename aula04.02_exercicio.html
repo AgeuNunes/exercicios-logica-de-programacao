@@ -1,0 +1,51 @@
+<!doctyoe html>
+<html>
+    <head>        
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <h1>CALCULADORA</h1>
+
+        <h3>Aula 04.01_exercicio</h3>
+
+        <button onclick="calcular('+')">+</button>
+        <button onclick="calcular('-')">-</button>
+        <button onclick="calcular('*')">x</button>
+        <button onclick="calcular('/')">/</button>
+        
+        <hr>
+
+        <div id='output'></div>
+
+        <script>
+            var n1 = prompt('Digite um número');
+            n1 = parseFloat(n1);
+            escreve();
+
+            function escreve(){
+                var output = document.querySelector('#output');
+                output.innerHTML = n1
+            }
+            
+            function calcular(f){
+                var n = prompt('Digite um número');
+                n = parseFloat(n);
+
+                switch(f){
+                    case '+':
+                        n1 += n;
+                        break;
+                    case '-':
+                        n1 -= n;
+                        break;
+                    case '*':
+                        n1 *= n;
+                        break;
+                    case '/':
+                        n1 /= n;
+                }                
+                escreve();
+            }            
+        </script>
+    </body>
+</html>

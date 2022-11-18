@@ -1,0 +1,70 @@
+<!doctyoe html>
+<html>
+    <head>        
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <h1>CALCULADORA</h1>
+
+        <h3>Aula 04.01_exercicio</h3>
+
+        <button onclick="iniciarCalculo('+')">+</button>
+        <button onclick="iniciarCalculo('-')">-</button>
+        <button onclick="iniciarCalculo('*')">x</button>
+        <button onclick="iniciarCalculo('/')">/</button>
+        
+        <hr>
+
+        <div id='output'></div>
+
+        <script>
+            var n1 = prompt('Digite um número:');
+            n1 = parseFloat(n1);
+            escreve(n1);
+
+            function iniciarCalculo(f){
+                var n1 = document.querySelector('#output').textContent;
+                n1 = parseFloat(n1);
+
+                var n2 = prompt('Digite um número:');
+                n2 = parseFloat(n2);
+
+                try{
+                var resultado = calcular(f, n1, n2);
+                } catch(e){
+                    alert(e);
+                    return;
+                }
+
+                escreve(resultado);
+            }
+
+            function escreve(resultado){
+                document.querySelector('#output').innerHTML = resultado;
+            }
+            
+            function calcular(f, n1, n2){
+                var resultado = null;
+
+                if(isNaN(n1) || isNaN(n2)){
+                    throw new Error('O valor informado não é um número válido!');                    
+                } else{
+                    switch(f){
+                        case '+':
+                            resultado = n1 + n2;
+                            break;
+                        case '-':
+                            resultado = n1 - n2;
+                            break;
+                        case '*':
+                            resultado = n1 * n2;
+                            break;
+                        case '/':
+                            resultado = n1 / n2;
+                    }
+                }
+                return resultado;
+            }            
+        </script>
+    </body>
+</html>

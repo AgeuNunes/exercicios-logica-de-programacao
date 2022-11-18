@@ -1,0 +1,78 @@
+<!doctyoe html>
+<html>
+    <head>
+
+        <meta charset="UTF-8">
+
+        <style>
+
+            body{
+                font-family: Verdana;
+            }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h1>Par ou Ímpar</h1>
+
+        <p>
+            Digite um número de 0 a 5
+            <input type="number" id="nJogador" min="0" max="5">
+            <button onclick="par()">Par</button>
+            <button onclick="impar()">Ímpar</button>
+        </p>
+
+
+        <script>
+
+            var nPc = '';
+            var nJogador = '';
+            var escolha = '';
+            var msg = '';
+
+            function sortear(max){
+                return Math.floor(Math.random() * max);
+            }
+
+            function par(){                
+                escolha = 'par';
+                jogar();
+            }
+
+            function impar(){
+                escolha = 'impar';
+                jogar();
+            }
+
+            function jogar(){
+                zerar();
+                nJogador = document.querySelector('#nJogador').value;
+                nJogador = parseFloat(nJogador);
+                nPc = sortear(5);
+
+                if(!nJogador || nJogador < 0 || nJogador > 5){
+                    return alert(msg);
+                }
+
+                var total = nPc + nJogador
+                var resultado = (total % 2 === 0) ? 'par' : 'impar'
+                msg = 'O número sorteado foi ' + nPc + '. Portanto você '
+                
+                if(escolha === resultado){
+                    alert(msg + 'ganhou!');
+                } else {
+                    alert(msg + 'perdeu!');
+                }
+            }
+
+            function zerar(){
+                nJogador = '';
+                msg = 'Por favor, escolha um número de 0 a 5.';
+            }
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctyoe html>
+<html>
+    <head>        
+        <meta charset='UTF-8'>
+    </head>
+    <body>
+        <h1>CALCULADORA</h1>
+
+        <h3>Aula 04.01_exercicio</h3>
+
+        <button onclick='somar()'>+</button>
+        <button onclick='subtrair()'>-</button>
+        <button onclick='multiplicar()'>x</button>
+        <button onclick='dividir()'>/</button>
+        
+        <hr>
+
+        <div id='output'></div>
+
+        <script>
+            var n1 = prompt('Digite um número');
+            n1 = parseFloat(n1);
+            escreve();
+
+            function escreve(){
+                var output = document.querySelector('#output');
+                output.innerHTML = n1
+            }
+            
+            function somar(){
+                var n = prompt('Digite um número');
+                n = parseFloat(n);              
+                n1 += n;
+                escreve();
+            }
+            
+            function subtrair(){
+                var n = prompt('Digite um número');
+                n = parseFloat(n);
+                n1 -= n;
+                escreve();
+            }
+
+            function multiplicar(){
+                var n = prompt('Digite um número');
+                n = parseFloat(n);
+                n1 *= n;
+                escreve();
+            }
+
+            function dividir(){
+                var n = prompt('Digite um número');
+                n = parseFloat(n);
+                n1 /= n;
+                escreve();
+            }            
+        </script>
+    </body>
+</html>
